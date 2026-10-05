@@ -1,0 +1,2263 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FUTURE | Lớp dạy kèm tin học</title>
+
+<style>
+:root{
+    --navy:#173A63;
+    --blue:#2F80ED;
+    --blue-light:#EAF3FF;
+    --gold:#C8A96B;
+    --gold-light:#F8F1E3;
+    --bg:#F6F8FC;
+    --white:#FFFFFF;
+    --text:#243447;
+    --muted:#718096;
+    --line:#E3EAF2;
+    --green:#2E8B70;
+    --red:#C94C4C;
+    --shadow:0 8px 30px rgba(31,56,85,.08);
+    --radius:18px;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+}
+
+/* ================= HEADER ================= */
+
+header{
+    background:
+        radial-gradient(circle at 90% 20%,rgba(255,255,255,.12),transparent 30%),
+        linear-gradient(135deg,#102D4F,#214F80);
+    color:white;
+    padding:34px 6%;
+    position:relative;
+    overflow:hidden;
+}
+
+header:after{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:50%;
+    right:-100px;
+    top:-150px;
+}
+
+.header-inner{
+    max-width:1500px;
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+.logo{
+    font-size:36px;
+    font-weight:800;
+    letter-spacing:4px;
+}
+
+header h1{
+    margin:8px 0 5px;
+    font-size:24px;
+    font-weight:600;
+}
+
+header p{
+    margin:0;
+    color:#DCE9F8;
+}
+
+.creator{
+    margin-top:15px;
+    font-size:13px;
+    color:#C9D9EA;
+}
+
+/* ================= NAV ================= */
+
+nav{
+    background:white;
+    border-bottom:1px solid var(--line);
+    padding:13px 6%;
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    position:sticky;
+    top:0;
+    z-index:50;
+}
+
+nav button{
+    border:0;
+    background:transparent;
+    color:#53657A;
+    padding:11px 18px;
+    border-radius:10px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s;
+}
+
+nav button:hover{
+    background:var(--blue-light);
+    color:var(--blue);
+}
+
+nav button.active{
+    background:var(--navy);
+    color:white;
+}
+
+/* ================= MAIN ================= */
+
+main{
+    max-width:1500px;
+    margin:auto;
+    padding:35px 5% 60px;
+}
+
+.tab{
+    display:none;
+}
+
+.tab.active{
+    display:block;
+}
+
+h2{
+    color:var(--navy);
+    margin-top:0;
+    font-size:25px;
+}
+
+h3{
+    color:var(--navy);
+    margin-top:0;
+}
+
+.muted,
+.small{
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.7;
+}
+
+/* ================= CARDS ================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    margin:25px 0;
+}
+
+.card,
+.panel{
+    background:white;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:23px;
+    box-shadow:var(--shadow);
+}
+
+.card{
+    position:relative;
+    overflow:hidden;
+}
+
+.card:before{
+    content:"";
+    position:absolute;
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    background:var(--blue-light);
+    right:-30px;
+    top:-30px;
+}
+
+.label{
+    color:var(--muted);
+    font-size:13px;
+    position:relative;
+    z-index:1;
+}
+
+.number{
+    margin-top:10px;
+    color:var(--navy);
+    font-size:34px;
+    font-weight:800;
+    position:relative;
+    z-index:1;
+}
+
+.two-col{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+/* ================= BUTTON ================= */
+
+.btn{
+    border:0;
+    background:var(--navy);
+    color:white;
+    padding:11px 17px;
+    border-radius:10px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 5px 15px rgba(23,58,99,.18);
+}
+
+.btn.secondary{
+    background:var(--blue-light);
+    color:var(--blue);
+}
+
+.btn.danger{
+    background:#FDECEC;
+    color:var(--red);
+}
+
+.btn.print{
+    background:var(--gold);
+    color:white;
+}
+
+/* ================= SECTION ================= */
+
+.section-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+/* ================= NOTE ================= */
+
+.note{
+    padding:17px 20px;
+    border-radius:14px;
+    background:#F2F7FC;
+    border:1px solid #DFEAF5;
+    margin:18px 0;
+    line-height:1.7;
+}
+
+.note.blue{
+    background:#EEF6FF;
+    border-color:#D7E9FC;
+}
+
+.note.yellow{
+    background:var(--gold-light);
+    border-color:#EEDDB9;
+}
+
+/* ================= FORM ================= */
+
+.filters,
+.formrow{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin:15px 0;
+    align-items:center;
+}
+
+input,
+select{
+    font:inherit;
+    padding:11px 13px;
+    border:1px solid #D5DFEA;
+    border-radius:10px;
+    background:white;
+    color:var(--text);
+    outline:none;
+}
+
+input:focus,
+select:focus{
+    border-color:var(--blue);
+    box-shadow:0 0 0 3px rgba(47,128,237,.1);
+}
+
+input{
+    min-width:220px;
+}
+
+/* ================= TABLE ================= */
+
+.tablewrap{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    min-width:900px;
+    border-collapse:collapse;
+    background:white;
+}
+
+th,
+td{
+    border-bottom:1px solid var(--line);
+    padding:13px;
+    text-align:left;
+    vertical-align:top;
+    line-height:1.5;
+}
+
+th{
+    background:var(--navy);
+    color:white;
+    font-weight:600;
+}
+
+tbody tr:hover{
+    background:#F8FAFD;
+}
+
+.fn{
+    font-weight:800;
+    color:var(--navy);
+    font-size:16px;
+}
+
+.badge{
+    display:inline-block;
+    padding:4px 9px;
+    border-radius:20px;
+    background:var(--blue-light);
+    color:var(--blue);
+    font-size:12px;
+    font-weight:700;
+}
+
+code{
+    background:#F3F6F9;
+    padding:4px 7px;
+    border-radius:6px;
+    color:#264D70;
+}
+
+/* ================= PROGRESS ================= */
+
+.progress{
+    height:9px;
+    background:#E8EEF5;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:8px;
+}
+
+.progress span{
+    display:block;
+    height:100%;
+    background:linear-gradient(90deg,var(--blue),#66A9FF);
+}
+
+/* ================= CHECKLIST ================= */
+
+.checklist{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+}
+
+.checkitem{
+    padding:12px;
+    border:1px solid var(--line);
+    border-radius:11px;
+    display:flex;
+    gap:9px;
+    background:white;
+    transition:.2s;
+}
+
+.checkitem:hover{
+    border-color:#BDD7F5;
+    background:#FAFCFF;
+}
+
+.checkitem input{
+    min-width:auto;
+    margin-top:4px;
+}
+
+/* ================= EMPTY ================= */
+
+.empty{
+    text-align:center;
+    padding:30px;
+    color:var(--muted);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#D5E2EF;
+    background:#102D4F;
+    line-height:1.8;
+}
+
+/* ================= PRINT PDF ================= */
+
+@media print{
+
+    @page{
+        size:A4;
+        margin:15mm;
+    }
+
+    body{
+        background:white;
+        color:#000;
+    }
+
+    header,
+    nav,
+    footer,
+    .no-print,
+    .filters,
+    .btn,
+    button{
+        display:none !important;
+    }
+
+    main{
+        max-width:none;
+        padding:0;
+        margin:0;
+    }
+
+    .tab{
+        display:none !important;
+    }
+
+    .tab.printing{
+        display:block !important;
+    }
+
+    .panel,
+    .note,
+    .card{
+        box-shadow:none;
+        border:1px solid #CCC;
+        break-inside:avoid;
+    }
+
+    table{
+        min-width:0;
+        width:100%;
+        font-size:11px;
+    }
+
+    th{
+        background:#173A63 !important;
+        color:white !important;
+        -webkit-print-color-adjust:exact;
+        print-color-adjust:exact;
+    }
+
+    h2{
+        color:#173A63 !important;
+    }
+
+    .tablewrap{
+        overflow:visible;
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .two-col{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:550px){
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .checklist{
+        grid-template-columns:1fr;
+    }
+
+    main{
+        padding:25px 4%;
+    }
+
+    header{
+        padding:28px 5%;
+    }
+
+    .logo{
+        font-size:30px;
+    }
+
+    nav button{
+        flex:1;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+    <div class="header-inner">
+        <div class="logo">FUTURE</div>
+        <h1>LỚP DẠY KÈM TIN HỌC VĂN PHÒNG</h1>
+        <p>Học dễ hiểu – Thực hành thành thạo</p>
+
+        <div class="creator">
+            Người tạo: <strong>Hải Băng</strong>
+        </div>
+    </div>
+</header>
+
+
+<!-- ================= NAV ================= -->
+
+<nav>
+    <button class="active" data-tab="home">
+        Tổng quan
+    </button>
+
+    <button data-tab="lesson">
+        Bài học 01
+    </button>
+
+    <button data-tab="attendance">
+        Điểm danh
+    </button>
+
+    <button data-tab="statistics">
+        Thống kê học viên
+    </button>
+</nav>
+
+
+<main>
+
+<!-- ================================================= -->
+<!-- TỔNG QUAN -->
+<!-- ================================================= -->
+
+<section id="home" class="tab active">
+
+    <h2>TỔNG QUAN LỚP HỌC</h2>
+
+    <p class="muted">
+        Quản lý bài giảng, học viên, điểm danh và tiến độ học tập tại FUTURE.
+    </p>
+
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="label">Tổng số học viên</div>
+            <div class="number" id="totalStudents">0</div>
+        </div>
+
+        <div class="card">
+            <div class="label">Số hàm trong Bài 01</div>
+            <div class="number">9</div>
+        </div>
+
+        <div class="card">
+            <div class="label">Tổng lượt có mặt</div>
+            <div class="number" id="totalPresent">0</div>
+        </div>
+
+        <div class="card">
+            <div class="label">Tổng lượt vắng</div>
+            <div class="number" id="totalAbsent">0</div>
+        </div>
+
+    </div>
+
+
+    <div class="two-col">
+
+        <div class="panel">
+
+            <h3>Bài học đang giảng dạy</h3>
+
+            <p>
+                <span class="badge">Bài 01</span>
+                Nhóm hàm tính toán cơ bản trong Excel
+            </p>
+
+            <p class="muted">
+                SUM, PRODUCT, AVERAGE, MIN, MAX,
+                COUNT, COUNTA, COUNTBLANK, COUNTIF.
+            </p>
+
+            <button class="btn"
+                    onclick="showTab('lesson')">
+                Mở bài học
+            </button>
+
+        </div>
+
+
+        <div class="panel">
+
+            <h3>Quản lý học viên</h3>
+
+            <p class="muted">
+                Thêm học viên, ghi ngày vào học,
+                điểm danh và theo dõi các hàm đã dạy.
+            </p>
+
+            <button class="btn"
+                    onclick="showTab('attendance')">
+                Quản lý điểm danh
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="note yellow">
+
+        <strong>Lưu ý:</strong>
+
+        Dữ liệu được lưu trên trình duyệt của thiết bị này,
+        chưa tự đồng bộ giữa các thiết bị.
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- BÀI HỌC -->
+<!-- ================================================= -->
+
+<section id="lesson" class="tab">
+
+    <div class="section-title">
+
+        <div>
+
+            <h2>
+                BÀI 01 — NHÓM HÀM TÍNH TOÁN CƠ BẢN TRONG EXCEL
+            </h2>
+
+            <p class="muted">
+                Người tạo: Hải Băng |
+                Tìm kiếm và lọc nhanh các hàm Excel.
+            </p>
+
+        </div>
+
+        <button class="btn print no-print"
+                onclick="printLesson('lesson')">
+            In / Xuất PDF
+        </button>
+
+    </div>
+
+
+    <div class="note">
+
+        <strong>CÁCH DÙNG CHUNG:</strong>
+
+        Các hàm thường dùng bằng cách chọn vùng dữ liệu cần tính
+        hoặc đếm.
+
+        Nếu các vùng không liền kề, phân cách bằng dấu phẩy
+        trong công thức. Một số thiết lập Excel dùng dấu chấm phẩy.
+
+        Riêng COUNTIF có thêm điều kiện ở thành phần thứ hai.
+
+    </div>
+
+
+    <div class="filters no-print">
+
+        <input
+            id="searchFunction"
+            type="search"
+            placeholder="Tìm tên hàm, chức năng, từ khóa..."
+            oninput="renderFunctions()"
+        >
+
+        <select
+            id="filterParts"
+            onchange="renderFunctions()"
+        >
+
+            <option value="">
+                Tất cả số thành phần
+            </option>
+
+            <option value="1">
+                1 thành phần
+            </option>
+
+            <option value="2">
+                2 thành phần
+            </option>
+
+        </select>
+
+
+        <button
+            class="btn secondary"
+            onclick="resetFunctionFilters()"
+        >
+            Xóa bộ lọc
+        </button>
+
+    </div>
+
+
+    <div class="tablewrap">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Tên hàm</th>
+                    <th>Số thành phần</th>
+                    <th>Công thức mẫu</th>
+                    <th>Chức năng</th>
+                    <th>Khi nào dùng?</th>
+                    <th>Từ khóa nhận biết</th>
+                    <th>Ví dụ minh họa</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="functionRows"></tbody>
+
+        </table>
+
+    </div>
+
+
+    <div class="two-col"
+         style="margin-top:20px">
+
+        <div class="note">
+
+            <h3>CÁCH DÙNG CHUNG</h3>
+
+            <ul>
+
+                <li>
+                    Chọn vùng dữ liệu cần tính hoặc đếm.
+                </li>
+
+                <li>
+                    Vùng có thể là một ô hoặc dãy ô như B2:B6.
+                </li>
+
+                <li>
+                    Nhiều vùng không liền kề:
+                    <code>=SUM(B2:B6,D2:D6)</code>
+                </li>
+
+                <li>
+                    COUNTIF có thêm điều kiện ở thành phần thứ hai.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="note blue">
+
+            <h3>MẸO NHỚ NHANH</h3>
+
+            <ul>
+                <li>"Tổng, cộng" → SUM</li>
+                <li>"Nhân, tích" → PRODUCT</li>
+                <li>"Trung bình" → AVERAGE</li>
+                <li>"Nhỏ nhất" → MIN</li>
+                <li>"Lớn nhất" → MAX</li>
+                <li>"Đếm số" → COUNT</li>
+                <li>"Đếm ô có dữ liệu" → COUNTA</li>
+                <li>"Đếm ô trống" → COUNTBLANK</li>
+                <li>"Đếm theo điều kiện" → COUNTIF</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- ĐIỂM DANH -->
+<!-- ================================================= -->
+
+<section id="attendance" class="tab">
+
+    <h2>ĐIỂM DANH & QUẢN LÝ HỌC VIÊN</h2>
+
+
+    <div class="panel">
+
+        <h3>Thêm học viên</h3>
+
+        <div class="formrow">
+
+            <input
+                id="studentName"
+                placeholder="Họ và tên học viên"
+            >
+
+            <input
+                id="joinDate"
+                type="date"
+                title="Ngày vào học"
+            >
+
+            <button
+                class="btn"
+                onclick="addStudent()"
+            >
+                Thêm học viên
+            </button>
+
+        </div>
+
+        <p class="small">
+            Nhập tên và ngày bắt đầu học của từng học viên.
+        </p>
+
+    </div>
+
+
+    <div class="panel">
+
+        <div class="section-title">
+
+            <h3>Danh sách điểm danh</h3>
+
+            <div class="formrow">
+
+                <label>
+                    Ngày học:
+                    <input
+                        id="attendanceDate"
+                        type="date"
+                        onchange="renderAttendance()"
+                    >
+                </label>
+
+                <button
+                    class="btn secondary"
+                    onclick="saveAttendance()"
+                >
+                    Lưu điểm danh
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="tablewrap">
+
+            <table style="min-width:650px">
+
+                <thead>
+
+                    <tr>
+                        <th>STT</th>
+                        <th>Họ và tên</th>
+                        <th>Ngày vào học</th>
+                        <th>Trạng thái</th>
+                        <th>Thao tác</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="attendanceRows"></tbody>
+
+            </table>
+
+        </div>
+
+        <p class="small">
+            Chọn trạng thái từng học viên rồi nhấn
+            "Lưu điểm danh".
+        </p>
+
+    </div>
+
+
+    <div class="panel">
+
+        <h3>Danh sách học viên</h3>
+
+        <div class="tablewrap">
+
+            <table style="min-width:600px">
+
+                <thead>
+
+                    <tr>
+                        <th>STT</th>
+                        <th>Họ và tên</th>
+                        <th>Ngày vào học</th>
+                        <th>Số hàm đã học</th>
+                        <th>Xóa</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="studentRows"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- THỐNG KÊ -->
+<!-- ================================================= -->
+
+<section id="statistics" class="tab">
+
+    <h2>THỐNG KÊ TIẾN ĐỘ HỌC VIÊN</h2>
+
+    <p class="muted">
+        Chọn học viên và đánh dấu các hàm đã dạy.
+        Website tự tính số hàm và tỷ lệ hoàn thành.
+    </p>
+
+
+    <div class="panel">
+
+        <h3>Chọn học viên</h3>
+
+        <select
+            id="progressStudent"
+            onchange="renderProgress()"
+            style="min-width:260px"
+        >
+
+            <option value="">
+                -- Chọn học viên --
+            </option>
+
+        </select>
+
+
+        <div
+            id="progressContent"
+            style="margin-top:20px"
+        ></div>
+
+    </div>
+
+
+    <div class="panel">
+
+        <h3>Bảng tổng hợp tiến độ</h3>
+
+        <div class="tablewrap">
+
+            <table style="min-width:650px">
+
+                <thead>
+
+                    <tr>
+                        <th>STT</th>
+                        <th>Học viên</th>
+                        <th>Ngày vào học</th>
+                        <th>Số hàm đã học</th>
+                        <th>Tổng số hàm</th>
+                        <th>Tiến độ</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="progressRows"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <strong>FUTURE — LỚP DẠY KÈM TIN HỌC</strong>
+
+    <br>
+
+    Học dễ hiểu – Thực hành thành thạo
+
+    <br>
+
+    Người tạo: Hải Băng
+
+</footer>
+
+
+<script>
+
+/* ================================================= */
+/* DANH SÁCH HÀM EXCEL */
+/* ================================================= */
+
+const FUNCTIONS = [
+
+    {
+        name:"SUM",
+        parts:1,
+        formula:"=SUM(vùng)",
+        fn:"Tính tổng các số",
+        when:"Cộng tổng tiền, tổng số lượng, tổng điểm...",
+        keys:"tổng, cộng, cộng lại",
+        example:"=SUM(B2:B6)",
+        explain:"Tính tổng các giá trị trong B2:B6"
+    },
+
+    {
+        name:"PRODUCT",
+        parts:1,
+        formula:"=PRODUCT(vùng)",
+        fn:"Nhân các số với nhau",
+        when:"Tính tích nhiều giá trị, ví dụ số lượng × đơn giá.",
+        keys:"nhân, tích",
+        example:"=PRODUCT(B2:B4)",
+        explain:"Nhân các giá trị trong B2:B4"
+    },
+
+    {
+        name:"AVERAGE",
+        parts:1,
+        formula:"=AVERAGE(vùng)",
+        fn:"Tính trung bình cộng",
+        when:"Tính điểm trung bình, lương trung bình, doanh số trung bình...",
+        keys:"trung bình, bình quân",
+        example:"=AVERAGE(B2:B6)",
+        explain:"Tính trung bình các giá trị trong B2:B6"
+    },
+
+    {
+        name:"MIN",
+        parts:1,
+        formula:"=MIN(vùng)",
+        fn:"Tìm số nhỏ nhất",
+        when:"Tìm giá trị thấp nhất, điểm thấp nhất, giá thấp nhất...",
+        keys:"nhỏ nhất, thấp nhất, tối thiểu",
+        example:"=MIN(B2:B6)",
+        explain:"Tìm giá trị nhỏ nhất trong B2:B6"
+    },
+
+    {
+        name:"MAX",
+        parts:1,
+        formula:"=MAX(vùng)",
+        fn:"Tìm số lớn nhất",
+        when:"Tìm giá trị cao nhất, điểm cao nhất, giá cao nhất...",
+        keys:"lớn nhất, cao nhất, tối đa",
+        example:"=MAX(B2:B6)",
+        explain:"Tìm giá trị lớn nhất trong B2:B6"
+    },
+
+    {
+        name:"COUNT",
+        parts:1,
+        formula:"=COUNT(vùng)",
+        fn:"Đếm các ô chứa số",
+        when:"Đếm số ô có giá trị số.",
+        keys:"đếm số, số lượng ô chứa số",
+        example:"=COUNT(B2:B6)",
+        explain:"Đếm số ô có số trong B2:B6"
+    },
+
+    {
+        name:"COUNTA",
+        parts:1,
+        formula:"=COUNTA(vùng)",
+        fn:"Đếm các ô có nội dung",
+        when:"Đếm ô có dữ liệu như số, chữ, ngày tháng...",
+        keys:"đếm ô có dữ liệu, ô có nội dung",
+        example:"=COUNTA(A2:A6)",
+        explain:"Đếm số ô có nội dung trong A2:A6"
+    },
+
+    {
+        name:"COUNTBLANK",
+        parts:1,
+        formula:"=COUNTBLANK(vùng)",
+        fn:"Đếm các ô trống",
+        when:"Đếm số ô chưa có dữ liệu.",
+        keys:"đếm ô trống, ô chưa nhập",
+        example:"=COUNTBLANK(B2:B6)",
+        explain:"Đếm số ô trống trong B2:B6"
+    },
+
+    {
+        name:"COUNTIF",
+        parts:2,
+        formula:"=COUNTIF(vùng, điều_kiện)",
+        fn:"Đếm các ô thỏa mãn một điều kiện",
+        when:"Đếm ô theo yêu cầu, ví dụ lớn hơn 10, bằng A.",
+        keys:"đếm theo điều kiện, bằng, lớn hơn, nhỏ hơn",
+        example:'=COUNTIF(B2:B6,">=8")',
+        explain:"Đếm số ô có giá trị lớn hơn hoặc bằng 8"
+    }
+
+];
+
+
+/* ================================================= */
+/* DỮ LIỆU */
+/* ================================================= */
+
+let students =
+    JSON.parse(
+        localStorage.getItem("future_students") || "[]"
+    );
+
+let attendance =
+    JSON.parse(
+        localStorage.getItem("future_attendance") || "{}"
+    );
+
+let progress =
+    JSON.parse(
+        localStorage.getItem("future_progress") || "{}"
+    );
+
+let selectedStatus = {};
+
+
+/* ================================================= */
+/* LƯU DỮ LIỆU */
+/* ================================================= */
+
+function persist(){
+
+    localStorage.setItem(
+        "future_students",
+        JSON.stringify(students)
+    );
+
+    localStorage.setItem(
+        "future_attendance",
+        JSON.stringify(attendance)
+    );
+
+    localStorage.setItem(
+        "future_progress",
+        JSON.stringify(progress)
+    );
+}
+
+
+/* ================================================= */
+/* NGÀY HIỆN TẠI */
+/* ================================================= */
+
+function today(){
+
+    const d = new Date();
+
+    return d.getFullYear()
+        + "-"
+        + String(d.getMonth()+1).padStart(2,"0")
+        + "-"
+        + String(d.getDate()).padStart(2,"0");
+}
+
+
+/* ================================================= */
+/* CHUYỂN TAB */
+/* ================================================= */
+
+function showTab(id){
+
+    document
+        .querySelectorAll(".tab")
+        .forEach(x =>
+            x.classList.toggle(
+                "active",
+                x.id === id
+            )
+        );
+
+    document
+        .querySelectorAll("nav button")
+        .forEach(x =>
+            x.classList.toggle(
+                "active",
+                x.dataset.tab === id
+            )
+        );
+
+    if(id === "attendance")
+        renderAttendance();
+
+    if(id === "statistics")
+        renderStatistics();
+
+    if(id === "home")
+        renderDashboard();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+
+document
+    .querySelectorAll("nav button")
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => showTab(button.dataset.tab)
+        );
+
+    });
+
+
+/* ================================================= */
+/* IN / XUẤT PDF */
+/* ================================================= */
+
+function printLesson(id){
+
+    const lesson =
+        document.getElementById(id);
+
+    if(!lesson){
+        alert("Không tìm thấy bài học.");
+        return;
+    }
+
+    lesson.classList.add("printing");
+
+    window.print();
+
+    setTimeout(() => {
+        lesson.classList.remove("printing");
+    },1000);
+}
+
+
+/* ================================================= */
+/* HIỂN THỊ HÀM */
+/* ================================================= */
+
+function renderFunctions(){
+
+    const q =
+        document
+            .getElementById("searchFunction")
+            .value
+            .toLowerCase()
+            .trim();
+
+    const part =
+        document
+            .getElementById("filterParts")
+            .value;
+
+    const rows =
+        FUNCTIONS.filter(f =>
+
+            (!part ||
+                String(f.parts) === part)
+
+            &&
+
+            [
+                f.name,
+                f.formula,
+                f.fn,
+                f.when,
+                f.keys,
+                f.example,
+                f.explain
+            ]
+            .join(" ")
+            .toLowerCase()
+            .includes(q)
+
+        );
+
+
+    document.getElementById(
+        "functionRows"
+    ).innerHTML = rows.length
+
+        ?
+
+        rows.map(f => `
+
+            <tr>
+
+                <td class="fn">
+                    ${f.name}
+                </td>
+
+                <td style="text-align:center">
+                    <span class="badge">
+                        ${f.parts}
+                    </span>
+                </td>
+
+                <td>
+                    <code>
+                        ${f.formula}
+                    </code>
+                </td>
+
+                <td>
+                    ${f.fn}
+                </td>
+
+                <td>
+                    ${f.when}
+                </td>
+
+                <td>
+                    ${f.keys}
+                </td>
+
+                <td>
+                    <strong>
+                        ${f.example}
+                    </strong>
+
+                    <br>
+
+                    → ${f.explain}
+                </td>
+
+            </tr>
+
+        `).join("")
+
+        :
+
+        `
+
+            <tr>
+
+                <td
+                    colspan="7"
+                    class="empty"
+                >
+                    Không tìm thấy hàm phù hợp.
+                </td>
+
+            </tr>
+
+        `;
+
+}
+
+
+/* ================================================= */
+/* XÓA BỘ LỌC */
+/* ================================================= */
+
+function resetFunctionFilters(){
+
+    document.getElementById(
+        "searchFunction"
+    ).value = "";
+
+    document.getElementById(
+        "filterParts"
+    ).value = "";
+
+    renderFunctions();
+}
+
+
+/* ================================================= */
+/* THÊM HỌC VIÊN */
+/* ================================================= */
+
+function addStudent(){
+
+    const name =
+        document
+            .getElementById("studentName")
+            .value
+            .trim();
+
+    const date =
+        document
+            .getElementById("joinDate")
+            .value;
+
+    if(!name){
+
+        alert(
+            "Bạn hãy nhập tên học viên."
+        );
+
+        return;
+    }
+
+
+    if(
+        students.some(
+            s =>
+                s.name.toLowerCase()
+                ===
+                name.toLowerCase()
+        )
+    ){
+
+        alert(
+            "Tên học viên này đã có."
+        );
+
+        return;
+    }
+
+
+    students.push({
+
+        id:
+            Date.now().toString()
+            +
+            Math.random()
+                .toString(16)
+                .slice(2),
+
+        name:name,
+
+        joinDate:date || ""
+
+    });
+
+
+    persist();
+
+    document.getElementById(
+        "studentName"
+    ).value = "";
+
+    renderAttendance();
+    renderStudents();
+    renderStatistics();
+    renderDashboard();
+
+    alert(
+        "Đã thêm học viên."
+    );
+}
+
+
+/* ================================================= */
+/* XÓA HỌC VIÊN */
+/* ================================================= */
+
+function removeStudent(id){
+
+    const s =
+        students.find(
+            x => x.id === id
+        );
+
+    if(!s)
+        return;
+
+    if(
+        !confirm(
+            "Xóa học viên "
+            +
+            s.name
+            +
+            "?\n\nDữ liệu điểm danh và tiến độ của bạn này cũng bị xóa."
+        )
+    )
+        return;
+
+
+    students =
+        students.filter(
+            x => x.id !== id
+        );
+
+    delete progress[id];
+
+    Object.keys(attendance)
+        .forEach(date => {
+
+            if(attendance[date])
+                delete attendance[date][id];
+
+        });
+
+    persist();
+
+    renderAttendance();
+    renderStudents();
+    renderStatistics();
+    renderDashboard();
+}
+
+
+/* ================================================= */
+/* ĐIỂM DANH */
+/* ================================================= */
+
+function renderAttendance(){
+
+    const date =
+        document
+            .getElementById("attendanceDate")
+            .value
+        ||
+        today();
+
+    selectedStatus =
+        {
+            ...(attendance[date] || {})
+        };
+
+    const body =
+        document.getElementById(
+            "attendanceRows"
+        );
+
+
+    body.innerHTML = students.length
+
+        ?
+
+        students.map((s,i) => `
+
+            <tr>
+
+                <td>
+                    ${i+1}
+                </td>
+
+                <td>
+                    ${escapeHtml(s.name)}
+                </td>
+
+                <td>
+                    ${s.joinDate || "—"}
+                </td>
+
+                <td>
+
+                    <select
+                        data-student="${s.id}"
+                        class="statusSelect"
+                    >
+
+                        <option
+                            value="present"
+                            ${selectedStatus[s.id] === "present"
+                                ? "selected"
+                                : ""}
+                        >
+                            Có mặt
+                        </option>
+
+                        <option
+                            value="absent"
+                            ${selectedStatus[s.id] === "absent"
+                                ? "selected"
+                                : ""}
+                        >
+                            Vắng
+                        </option>
+
+                        <option
+                            value="late"
+                            ${selectedStatus[s.id] === "late"
+                                ? "selected"
+                                : ""}
+                        >
+                            Đi trễ
+                        </option>
+
+                        <option
+                            value="excused"
+                            ${selectedStatus[s.id] === "excused"
+                                ? "selected"
+                                : ""}
+                        >
+                            Có phép
+                        </option>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <button
+                        class="btn danger"
+                        onclick="removeStudent('${s.id}')"
+                    >
+                        Xóa học viên
+                    </button>
+
+                </td>
+
+            </tr>
+
+        `).join("")
+
+        :
+
+        `
+
+            <tr>
+
+                <td
+                    colspan="5"
+                    class="empty"
+                >
+                    Chưa có học viên.
+                    Hãy thêm học viên ở phía trên.
+                </td>
+
+            </tr>
+
+        `;
+
+
+    body
+        .querySelectorAll(".statusSelect")
+        .forEach(sel =>
+
+            sel.addEventListener(
+                "change",
+                () =>
+                    selectedStatus[
+                        sel.dataset.student
+                    ] = sel.value
+            )
+
+        );
+
+    renderStudents();
+}
+
+
+/* ================================================= */
+/* LƯU ĐIỂM DANH */
+/* ================================================= */
+
+function saveAttendance(){
+
+    const date =
+        document
+            .getElementById("attendanceDate")
+            .value;
+
+    if(!date){
+
+        alert(
+            "Hãy chọn ngày điểm danh."
+        );
+
+        return;
+    }
+
+
+    const saved = {};
+
+
+    document
+        .querySelectorAll(".statusSelect")
+        .forEach(sel => {
+
+            saved[
+                sel.dataset.student
+            ] = sel.value;
+
+        });
+
+
+    attendance[date] = saved;
+
+    persist();
+
+    renderDashboard();
+    renderStudents();
+
+    alert(
+        "Đã lưu điểm danh ngày "
+        +
+        date
+        +
+        "."
+    );
+}
+
+
+/* ================================================= */
+/* ĐẾM HÀM ĐÃ HỌC */
+/* ================================================= */
+
+function taughtCount(id){
+
+    return (
+        progress[id] || []
+    ).length;
+
+}
+
+
+/* ================================================= */
+/* DANH SÁCH HỌC VIÊN */
+/* ================================================= */
+
+function renderStudents(){
+
+    document.getElementById(
+        "studentRows"
+    ).innerHTML = students.length
+
+        ?
+
+        students.map((s,i) => `
+
+            <tr>
+
+                <td>
+                    ${i+1}
+                </td>
+
+                <td>
+                    ${escapeHtml(s.name)}
+                </td>
+
+                <td>
+                    ${s.joinDate || "—"}
+                </td>
+
+                <td>
+                    ${taughtCount(s.id)}/9
+                </td>
+
+                <td>
+
+                    <button
+                        class="btn danger"
+                        onclick="removeStudent('${s.id}')"
+                    >
+                        Xóa
+                    </button>
+
+                </td>
+
+            </tr>
+
+        `).join("")
+
+        :
+
+        `
+
+            <tr>
+
+                <td
+                    colspan="5"
+                    class="empty"
+                >
+                    Chưa có học viên.
+                </td>
+
+            </tr>
+
+        `;
+
+}
+
+
+/* ================================================= */
+/* THỐNG KÊ */
+/* ================================================= */
+
+function renderStatistics(){
+
+    const sel =
+        document.getElementById(
+            "progressStudent"
+        );
+
+    const old = sel.value;
+
+
+    sel.innerHTML =
+        '<option value="">-- Chọn học viên --</option>'
+        +
+
+        students
+            .map(
+                s =>
+
+                    `<option value="${s.id}">
+                        ${escapeHtml(s.name)}
+                    </option>`
+
+            )
+            .join("");
+
+
+    if(
+        students.some(
+            s => s.id === old
+        )
+    )
+        sel.value = old;
+
+
+    renderProgress();
+    renderProgressTable();
+}
+
+
+/* ================================================= */
+/* HIỂN THỊ TIẾN ĐỘ */
+/* ================================================= */
+
+function renderProgress(){
+
+    const id =
+        document
+            .getElementById(
+                "progressStudent"
+            )
+            .value;
+
+    const box =
+        document.getElementById(
+            "progressContent"
+        );
+
+
+    if(!id){
+
+        box.innerHTML = `
+
+            <p class="empty">
+                Hãy chọn học viên để
+                đánh dấu các hàm đã dạy.
+            </p>
+
+        `;
+
+        return;
+    }
+
+
+    const checked =
+        progress[id] || [];
+
+    const count =
+        checked.length;
+
+    const pct =
+        Math.round(
+            count / 9 * 100
+        );
+
+
+    const student =
+        students.find(
+            s => s.id === id
+        );
+
+
+    box.innerHTML = `
+
+        <h3>
+            ${escapeHtml(
+                student?.name || ""
+            )}
+        </h3>
+
+        <p>
+            <strong>
+                Đã học ${count}/9 hàm
+                (${pct}%)
+            </strong>
+        </p>
+
+        <div class="progress">
+            <span
+                style="width:${pct}%"
+            ></span>
+        </div>
+
+        <p class="muted">
+            Tích chọn hàm sau khi
+            bạn đã dạy hàm đó cho học viên.
+        </p>
+
+        <div class="checklist">
+
+            ${FUNCTIONS.map(
+                (f,i) => `
+
+                    <label class="checkitem">
+
+                        <input
+                            type="checkbox"
+                            data-function="${i}"
+                            ${checked.includes(i)
+                                ? "checked"
+                                : ""}
+                        >
+
+                        <span>
+
+                            <strong>
+                                ${f.name}
+                            </strong>
+
+                            <br>
+
+                            <span class="small">
+                                ${f.fn}
+                            </span>
+
+                        </span>
+
+                    </label>
+
+                `
+            ).join("")}
+
+        </div>
+
+
+        <div class="formrow">
+
+            <button
+                class="btn"
+                onclick="saveProgress()"
+            >
+                Lưu tiến độ học
+            </button>
+
+            <button
+                class="btn secondary"
+                onclick="markAll()"
+            >
+                Đánh dấu đã dạy cả 9 hàm
+            </button>
+
+        </div>
+
+    `;
+}
+
+
+/* ================================================= */
+/* LƯU TIẾN ĐỘ */
+/* ================================================= */
+
+function saveProgress(){
+
+    const id =
+        document
+            .getElementById(
+                "progressStudent"
+            )
+            .value;
+
+    if(!id)
+        return;
+
+
+    progress[id] =
+        Array.from(
+            document.querySelectorAll(
+                "#progressContent input[data-function]:checked"
+            )
+        )
+        .map(
+            x => Number(
+                x.dataset.function
+            )
+        );
+
+
+    persist();
+
+    renderStatistics();
+    renderStudents();
+    renderDashboard();
+
+    document.getElementById(
+        "progressStudent"
+    ).value = id;
+
+    renderProgress();
+
+    alert(
+        "Đã lưu tiến độ học viên."
+    );
+}
+
+
+/* ================================================= */
+/* ĐÁNH DẤU CẢ 9 HÀM */
+/* ================================================= */
+
+function markAll(){
+
+    document
+        .querySelectorAll(
+            "#progressContent input[data-function]"
+        )
+        .forEach(
+            x => x.checked = true
+        );
+
+    saveProgress();
+}
+
+
+/* ================================================= */
+/* BẢNG TỔNG HỢP TIẾN ĐỘ */
+/* ================================================= */
+
+function renderProgressTable(){
+
+    document.getElementById(
+        "progressRows"
+    ).innerHTML = students.length
+
+        ?
+
+        students.map((s,i) => {
+
+            const n =
+                taughtCount(s.id);
+
+            const pct =
+                Math.round(
+                    n / 9 * 100
+                );
+
+            return `
+
+                <tr>
+
+                    <td>
+                        ${i+1}
+                    </td>
+
+                    <td>
+                        ${escapeHtml(s.name)}
+                    </td>
+
+                    <td>
+                        ${s.joinDate || "—"}
+                    </td>
+
+                    <td>
+                        ${n}
+                    </td>
+
+                    <td>
+                        9
+                    </td>
+
+                    <td>
+
+                        ${pct}%
+
+                        <div class="progress">
+
+                            <span
+                                style="width:${pct}%"
+                            ></span>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+            `;
+
+        }).join("")
+
+        :
+
+        `
+
+            <tr>
+
+                <td
+                    colspan="6"
+                    class="empty"
+                >
+                    Chưa có học viên.
+                </td>
+
+            </tr>
+
+        `;
+}
+
+
+/* ================================================= */
+/* DASHBOARD */
+/* ================================================= */
+
+function renderDashboard(){
+
+    document.getElementById(
+        "totalStudents"
+    ).textContent =
+        students.length;
+
+
+    let present = 0;
+    let absent = 0;
+
+
+    Object
+        .values(attendance)
+        .forEach(day => {
+
+            Object
+                .values(day || {})
+                .forEach(status => {
+
+                    if(status === "present")
+                        present++;
+
+                    if(status === "absent")
+                        absent++;
+
+                });
+
+        });
+
+
+    document.getElementById(
+        "totalPresent"
+    ).textContent =
+        present;
+
+
+    document.getElementById(
+        "totalAbsent"
+    ).textContent =
+        absent;
+}
+
+
+/* ================================================= */
+/* CHỐNG HTML LỖI */
+/* ================================================= */
+
+function escapeHtml(value){
+
+    return String(value)
+        .replace(
+            /[&<>"']/g,
+            c => ({
+
+                "&":"&amp;",
+                "<":"&lt;",
+                ">":"&gt;",
+                '"':"&quot;",
+                "'":"&#39;"
+
+            }[c])
+        );
+}
+
+
+/* ================================================= */
+/* KHỞI ĐỘNG WEBSITE */
+/* ================================================= */
+
+document.getElementById(
+    "attendanceDate"
+).value = today();
+
+document.getElementById(
+    "joinDate"
+).value = today();
+
+renderFunctions();
+renderAttendance();
+renderStudents();
+renderStatistics();
+renderDashboard();
+
+</script>
+
+</body>
+</html>
